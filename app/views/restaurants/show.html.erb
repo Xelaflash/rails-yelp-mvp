@@ -1,3 +1,4 @@
+<div class="wrapper">
 <div class="container">
     <h2><strong><%= @restaurant.name %></strong></h2>
     <hr>
@@ -5,5 +6,20 @@
     <p> Address : <%= @restaurant.address %></p>
     <p> Phone : <%= @restaurant.phone_number %></p>
     <hr>
+    <h3>Reviews</h3>
+    <% @reviews.each do |review| %>
+    <p><%= review.content %></p>
+    <p><%= "🔥" * review.rating %></p>
+    <% end %>
+</div>
 
+
+  <div class="container">
+    <h3>Create a <%= "#{@restaurant.name}"  %> review</h3>
+    <%= simple_form_for [@restaurant, @review] do |f| %>
+      <%= f.input :content %>
+      <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5], prompt: true %>
+      <%= f.submit "add a review", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
