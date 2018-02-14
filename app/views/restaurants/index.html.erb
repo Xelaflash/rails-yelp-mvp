@@ -1,0 +1,10 @@
+<div class="container">
+  <h1> List of Resto</h1>
+  <hr>
+  <% @restaurants.each do |restaurant| %>
+    <h4>
+      <%= restaurant.name %>
+    </h4>
+    <p><strong>Type of cuisine : </strong><%= restaurant.category %></p>
+  <% end %>
+</div>
