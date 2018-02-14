@@ -1,10 +1,14 @@
 <div class="container">
   <h1> List of Resto</h1>
+  <%= link_to "New resto", new_restaurant_path, class: "btn btn-success" %>
   <hr>
   <% @restaurants.each do |restaurant| %>
     <h4>
-      <%= restaurant.name %>
-    </h4>
+      <%= link_to restaurant_path(restaurant) do %>
+      <strong><%= restaurant.name %></strong></h4>
+      <% end %>
     <p><strong>Type of cuisine : </strong><%= restaurant.category %></p>
+    <hr>
   <% end %>
+
 </div>
